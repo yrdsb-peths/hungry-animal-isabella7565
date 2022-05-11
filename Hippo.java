@@ -12,8 +12,14 @@ public class Hippo extends Actor
      * Act - do whatever the Hippo wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
+    public void act() 
     {
-        move(5);
+        if (Greenfoot.isKeyDown("a")){
+            move(-3);
+            // Add your action code here.
+        } 
+        if (Greenfoot.isKeyDown("d")){
+            move(3);
+        }
     }
 }
