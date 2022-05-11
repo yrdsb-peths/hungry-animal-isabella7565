@@ -21,5 +21,10 @@ public class Hippo extends Actor
         if (Greenfoot.isKeyDown("d")){
             move(3);
         }
+        if (isTouching(Bomb.class)){
+            removeTouching(Bomb.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.spawnBomb();
+        }
     }
 }

@@ -19,5 +19,16 @@ public class MyWorld extends World
         super(600, 400, 1); 
         Hippo h = new Hippo();
         addObject(h, 300, 350);
+        
+        spawnBomb();
+    }
+    
+    public void spawnBomb()
+    {
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
+        
+        Bomb b = new Bomb();
+        addObject(b, x, y);
     }
 }
