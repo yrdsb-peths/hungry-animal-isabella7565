@@ -12,6 +12,7 @@ public class Hippo extends Actor
      * Act - do whatever the Hippo wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    //GreenfootSound hippoSound = new GreenfootSound("mixkit-fantasy-game-success-notification-270");
     public void act() 
     {
         if (Greenfoot.isKeyDown("a")){
@@ -24,7 +25,9 @@ public class Hippo extends Actor
         if (isTouching(Bomb.class)){
             removeTouching(Bomb.class);
             MyWorld world = (MyWorld) getWorld();
+            world.increaseScore();
             world.spawnBomb();
+            //hippoSound.play();
         }
     }
 }
