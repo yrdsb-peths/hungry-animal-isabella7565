@@ -13,18 +13,19 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    public int score = 0;
+    public int score = 0;;
     public Label scoreLabel = new Label(score, 80);
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 400, 1, false);
+        
         Hippo h = new Hippo();
         addObject(h, 300, 350);
         
-        spawnBomb();
-        
         addObject (scoreLabel, 50, 50);
+        
+        spawnBomb();
     }
     
     public void spawnBomb()
@@ -36,10 +37,6 @@ public class MyWorld extends World
         addObject(b, x, y);
     }
     
-    private void prepare()
-    {
-        
-    }
     public void increaseScore()
     {
         score ++;
@@ -48,8 +45,10 @@ public class MyWorld extends World
     
     public void gameOver()
     {
-        Label gameOverLabel = new Label ("Game Over!", 100);
-        addObject(gameOverLabel, 300, 200);
+        GameOverWorld world = new GameOverWorld();
+        Greenfoot.setWorld(world);
+        //Label gameOverLabel = new Label ("Game Over!", 100);
+        //addObject(gameOverLabel, 300, 200);
     }
 }
     
