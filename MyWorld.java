@@ -32,23 +32,24 @@ public class MyWorld extends World
     {
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
-        
         Bomb b = new Bomb();
+       
         addObject(b, x, y);
     }
     
     public void increaseScore()
     {
-        score ++;
+        score++;
         scoreLabel.setValue(score);
     }
+   
     
     public void gameOver()
     {
         GameOverWorld world = new GameOverWorld();
         Greenfoot.setWorld(world);
-        //Label gameOverLabel = new Label ("Game Over!", 100);
-        //addObject(gameOverLabel, 300, 200);
+        Label gameOverLabel = new Label ("Game Over!", 100);
+        addObject(gameOverLabel, 300, 200);
     }
 }
     

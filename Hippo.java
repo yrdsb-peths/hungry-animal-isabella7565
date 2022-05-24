@@ -13,6 +13,7 @@ public class Hippo extends Actor
     GreenfootImage[] idleLeft = new GreenfootImage[8];
     
     String facing = "right";
+    SimpleTimer animationTimer = new SimpleTimer();
     /**
      * Act - do whatever the Hippo wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -30,13 +31,20 @@ public class Hippo extends Actor
            idleLeft[i] = new GreenfootImage("images/idle/idle" + i + ".png.png");
            idleLeft[i].mirrorHorizontally();
         }   
+        
+        animationTimer.mark();
+        
         setImage(idleRight[0]);
     }
     
     int imageIndex = 0;
     public void animateHippo()
     {
-       
+        if(animationTimer.millisElapsed() < 200)
+        {   
+            return;
+        }
+        animationTimer.mark();
         if(facing.equals("right"))
         {
             setImage(idleRight[imageIndex]);
@@ -49,7 +57,7 @@ public class Hippo extends Actor
             imageIndex = (imageIndex + 1) % idleLeft.length;
             
         
-    }
+        }
    }
         
     
@@ -69,7 +77,6 @@ public class Hippo extends Actor
             hippoSound.play();
             removeTouching(Bomb.class);
             MyWorld world = (MyWorld) getWorld();
-            world.increaseScore();
             world.spawnBomb();
         }
         
