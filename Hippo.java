@@ -41,10 +41,10 @@ public class Hippo extends Actor
     public void animateHippo()
     {
         if(animationTimer.millisElapsed() < 200)
-        {   
+        { 
             return;
         }
-        animationTimer.mark();
+        animationTimer.mark();    
         if(facing.equals("right"))
         {
             setImage(idleRight[imageIndex]);
@@ -58,7 +58,7 @@ public class Hippo extends Actor
             
         
         }
-   }
+        }
         
     
    
@@ -77,6 +77,7 @@ public class Hippo extends Actor
             hippoSound.play();
             removeTouching(Bomb.class);
             MyWorld world = (MyWorld) getWorld();
+            world.increaseScore();
             world.spawnBomb();
         }
         

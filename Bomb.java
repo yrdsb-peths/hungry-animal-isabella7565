@@ -17,8 +17,8 @@ public class Bomb extends Actor
     {
         // Add your action code here.
         int x = getX();
-        int y = getY();
-        setLocation(x, y);
+        int y = getY()+ speed;
+        setLocation(x, y + 1);
         
         MyWorld world = (MyWorld) getWorld();
         if(getY() > world.getHeight())
@@ -27,11 +27,10 @@ public class Bomb extends Actor
             world.removeObject(this);
         }
         
-    } 
+    }
     
     public void setSpeed(int spd)
     {
-        speed = spd;
-        
+       speed = spd; 
     }
 }
